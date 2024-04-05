@@ -64,9 +64,9 @@ const component: ClosureComponent = (): Component => {
       );
 
       if (value == null) return null;
-      let readonly = (vnode.attrs["readonly"] === "true")
+      let readonly = vnode.attrs["readonly"]
       let edit;
-      if (device[parameter]?.writable && !readonly) {
+      if (device[parameter]?.writable && (!readonly)) {
         edit = m(
           "button",
           {
