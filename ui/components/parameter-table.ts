@@ -11,7 +11,8 @@ interface Attrs {
   device: FlatDevice;
   parameter: Expression;
   label: Expression;
-  childParameters: Record<string, { label: string; parameter: Expression }>;
+  readonly: Expression;
+  childParameters: Record<string, { label: string; parameter: Expression; readonly: Expression; }>;
   filter?: Expression;
   deviceQuery: QueryResponse;
 }
