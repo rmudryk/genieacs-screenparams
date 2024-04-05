@@ -17,6 +17,7 @@ const component: ClosureComponent = (): Component => {
           {
             title: "Reboot device",
             onclick: () => {
+              if (!confirm("REBOOT this device. Are you sure?")) return;
               taskQueue.queueTask({
                 name: "reboot",
                 device: device["DeviceID.ID"].value[0],
@@ -33,6 +34,7 @@ const component: ClosureComponent = (): Component => {
           {
             title: "Factory reset device",
             onclick: () => {
+              if (!confirm("FACTORY RESET this device. Are you sure?")) return;
               taskQueue.queueTask({
                 name: "factoryReset",
                 device: device["DeviceID.ID"].value[0],
