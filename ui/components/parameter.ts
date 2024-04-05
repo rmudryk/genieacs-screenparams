@@ -34,6 +34,7 @@ const evaluateParam = memoize((exp, obj, now: number) => {
 
   let parameter = null;
   let value = null;
+  let readonly = false;
 
   if (!Array.isArray(exp)) {
     value = exp;
@@ -63,9 +64,9 @@ const component: ClosureComponent = (): Component => {
       );
 
       if (value == null) return null;
-
+      let readonly = (vnode.attrs["readonly"] === "true")
       let edit;
-      if (device[parameter]?.writable) {
+      if (device[parameter]?.writable && !readonly) {
         edit = m(
           "button",
           {
