@@ -511,6 +511,7 @@ export interface SoapMessage {
 
 export interface ScriptResult {
   fault: Fault;
+  deviceTabs?: Record<string, unknown>;
   clear: Clear[];
   declare: Declaration[];
   done: boolean;
