@@ -43,7 +43,6 @@ const component: ClosureComponent<Attrs> = () => {
           else instances.add(p.slice(0, i));
         }
       }
-
       const headers = Object.values(parameters).map((p) =>
         m("th", evaluateExpression(p["label"], device)),
       );
