@@ -85,7 +85,7 @@ const component: ClosureComponent<Attrs> = () => {
           );
         });
 
-        if (device[i].writable === true true && (!readonly)) {
+        if (device[i].writable === true && (!readonly)) {
           row.push(
             m(
               "td",
