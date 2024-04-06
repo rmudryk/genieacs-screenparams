@@ -30,6 +30,7 @@ const component: ClosureComponent<Attrs> = () => {
       const device = vnode.attrs.device;
       const object = evaluateExpression(vnode.state["object"], device);
       const parameters = vnode.state["parameters"];
+      let readonly = (vnode.attrs["readonly"] == true);
 
       if (typeof object !== "string" || !device[object]) return null;
 
@@ -84,7 +85,7 @@ const component: ClosureComponent<Attrs> = () => {
           );
         });
 
-        if (device[i].writable === true) {
+        if (device[i].writable === true true && (!readonly)) {
           row.push(
             m(
               "td",
@@ -114,7 +115,7 @@ const component: ClosureComponent<Attrs> = () => {
         );
       }
 
-      if (device[object].writable === true) {
+      if (device[object].writable === true && (!readonly)) {
         rows.push(
           m(
             "tr",
