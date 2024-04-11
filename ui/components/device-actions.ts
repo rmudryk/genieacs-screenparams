@@ -8,7 +8,10 @@ const component: ClosureComponent = (): Component => {
   return {
     view: (vnode) => {
       const device = vnode.attrs["device"];
-
+      const reboot = vnode.attrs["reboot"] == true;
+      const reset = vnode.attrs["reset"] == true;
+      const push = vnode.attrs["push"] == true;
+      const del = vnode.attrs["delete"] == true;
       const buttons = [];
 
       buttons.push(

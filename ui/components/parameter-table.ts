@@ -140,6 +140,23 @@ const component: ClosureComponent<Attrs> = () => {
         );
       }
 
+      rows.push(
+        m(
+          "button",
+          {
+            title: "Refresh tree",
+            onclick: () => {
+              taskQueue.queueTask({
+                name: "getParameterValues",
+                device: device["DeviceID.ID"].value[0] as string,
+                parameterNames: [k],
+              });
+            },
+          },
+          getIcon("refresh"),
+        ),
+      );
+
       let label;
 
       const l = evaluateExpression(vnode.attrs.label, device);

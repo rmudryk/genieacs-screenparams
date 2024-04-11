@@ -148,7 +148,7 @@ const component: ClosureComponent<Attrs> = () => {
                 taskQueue.queueTask({
                   name: "getParameterValues",
                   device: device["DeviceID.ID"].value[0] as string,
-                  parameterNames: [k],
+                  parameterNames: [p],
                 });
               },
             },
