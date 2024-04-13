@@ -84,6 +84,27 @@ const component: ClosureComponent<Attrs> = () => {
           );
         });
 
+        
+       row.push(
+       m(
+           "td",
+        m(
+           "button",
+           {
+             title: "Refresh tree",
+             onclick: () => {
+               taskQueue.queueTask({
+                 name: "getParameterValues",
+                 device: device["DeviceID.ID"].value[0] as string,
+                 parameterNames: [k],
+                });
+              },
+            },
+            getIcon("refresh"),
+          ),
+        ),
+      );
+
         if (device[i].writable === true && (!readonly)) {
           row.push(
             m(
@@ -114,6 +135,7 @@ const component: ClosureComponent<Attrs> = () => {
         );
       }
 
+
       if (device[object].writable === true && (!readonly)) {
         rows.push(
           m(
@@ -140,22 +162,7 @@ const component: ClosureComponent<Attrs> = () => {
         );
       }
 
-      rows.push(
-        m(
-          "button",
-          {
-            title: "Refresh tree",
-            onclick: () => {
-              taskQueue.queueTask({
-                name: "getParameterValues",
-                device: device["DeviceID.ID"].value[0] as string,
-                parameterNames: [k],
-              });
-            },
-          },
-          getIcon("refresh"),
-        ),
-      );
+
 
       let label;
 

@@ -137,24 +137,25 @@ const component: ClosureComponent<Attrs> = () => {
               ),
             );
           }
+          val.push(
+            m(
+              "button",
+              {
+                title: "Refresh tree",
+                onclick: () => {
+                  taskQueue.queueTask({
+                    name: "getParameterValues",
+                    device: device["DeviceID.ID"].value[0] as string,
+                    parameterNames: [k],
+                  });
+                },
+              },
+              getIcon("refresh"),
+            ),
+          );
         }
 
-        val.push(
-          m(
-            "button",
-            {
-              title: "Refresh tree",
-              onclick: () => {
-                taskQueue.queueTask({
-                  name: "getParameterValues",
-                  device: device["DeviceID.ID"].value[0] as string,
-                  parameterNames: [p],
-                });
-              },
-            },
-            getIcon("refresh"),
-          ),
-        );
+        
 
         return m(
           "tr",
